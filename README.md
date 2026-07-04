@@ -17,15 +17,24 @@ curl -sL https://github.com/fbdeme/tikz-figure/archive/main.tar.gz \
 ## Use
 
 Invoke `/tikz-figure`, or just ask for a *"paper figure / 방법론 그림 / architecture diagram"*.
-The skill:
+The skill (v2 — pipeline: **Spec → Draft → Render → Review loop → Ship**):
 
 1. **Preflight** — checks `pdflatex` + `pdftoppm`.
-2. **Start from `assets/template.tex`** — palette, node styles, a `fit` container, a hub bar,
+2. **Spec** — 5-line figure spec first: message, hero, flow direction, groups, and the
+   manuscript source-of-truth (labels are quotes, not paraphrases).
+3. **Start from `assets/template.tex`** — palette, node styles, a `fit` container, a hub bar,
    a side rail, a feedback curve, and a legend (compiles as-is).
-3. **Apply design principles** — selective short labels (detail goes in text/tables), soft
-   pastel palette, **no crossing arrows**, `positioning`/`fit`, clear hierarchy, legend.
-4. **Build & iterate** — `pdflatex` → `pdftoppm` → **view the PNG** → fix → repeat.
-5. **Ship** — `.tex` + `.pdf` + `.png`, embedded with a caption that links the source.
+4. **Apply the venue style vocabulary** — shape/arrow/color semantics, typography, and
+   composition rules distilled from NeurIPS-2025 accepted figures
+   ([`references/style_guide.md`](references/style_guide.md),
+   [`references/palettes.md`](references/palettes.md)).
+5. **Build & review loop** — `pdflatex` → `pdftoppm` → **score the PNG** on a 5-dimension
+   venue rubric with veto rules ([`references/design_review.md`](references/design_review.md));
+   iterate until ≥ 8.5/10 (paper) or 4 passes.
+6. **Ship** — `.tex` + `.pdf` + `.png`, embedded with a caption that links the source.
+
+For *illustrative/conceptual* raster figures the skill can escalate to a locally installed
+[PaperBanana](https://github.com/fbdeme/PaperBanana) pipeline (see SKILL.md §7).
 
 ## Requirements
 
